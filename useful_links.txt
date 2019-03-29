@@ -1,0 +1,5 @@
+https://www.codementor.io/innat_2k14/extract-a-particular-object-from-images-using-opencv-in-python-jfogyig5u
+
+https://pypi.org/project/opencv-python/
+
+http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.56.4063&rep=rep1&type=pdf
