@@ -13,12 +13,12 @@ import os
 
 # Change 'test' and 'training' as needed to initialize
 
-cwd = os.chdir('test')
+cwd = os.chdir('train')
 files = os.listdir(cwd)
 
 for i in range(len(files)):
     print(files[i])
-    cwd = os.chdir('../test')
+    cwd = os.chdir('../train')
     rgb = cv2.imread(files[i])
     gray = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
     template = cv2.imread('../resistor_template.png',0)
@@ -33,5 +33,6 @@ for i in range(len(files)):
     bottom_right = (top_left[0] + w, top_left[1]+h)
 
     resistor = rgb[top_left[1]:bottom_right[1],top_left[0]:bottom_right[0]]
-    cwd = os.chdir('../initialized_test')
+    resistor = cv2.resize(resistor, (600, 250))
+    cwd = os.chdir('../initialized_train')
     cv2.imwrite(str(i) + '.png',resistor)
