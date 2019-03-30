@@ -11,6 +11,8 @@ import cv2
 import numpy as np
 import os
 
+# Change 'test' and 'training' as needed to initialize
+
 cwd = os.chdir('test')
 files = os.listdir(cwd)
 
