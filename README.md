@@ -1,4 +1,4 @@
-# eigen_resistance
+# fischer_resistance
 QEA Module 2 Final Project
 
 Python script for cropping images:
