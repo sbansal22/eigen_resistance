@@ -27,12 +27,23 @@ end
 %% Initialize system
 % Reshape train images to form "vectors"
 train_reshape = reshape(bw_train, size(bw_train,1) * size(bw_train,2), size(bw_train,3));
+%train_reshape = train_reshape - mean(train_reshape,2);
 
 % Find SVD of the vector representations of the images
 [U,S,V] = svd(train_reshape, 'econ');
 
 % Project faces into eigenspace and find a matrix of weights
 train_weights = U' * train_reshape;
+
+% Find the average for each person
+% Every person has two images next to each other in the training set
+% Isolate the odd columns
+%odd = train_weights(:,1:2:end);
+% Isolate the even columns
+%even = train_weights(:,2:2:end);
+% Average the odd and even columns to find an average weight vector for
+% each person
+%avg_weight_face = (odd + even)/2;
 
 %% Test New Image
 % Reshape the test images for matrix calculations

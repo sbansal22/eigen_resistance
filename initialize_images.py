@@ -35,6 +35,6 @@ for i in range(len(files)):
     bottom_right = (top_left[0] + w, top_left[1]+h)
 
     resistor = rgb[top_left[1]:bottom_right[1],top_left[0]:bottom_right[0]]
-    resistor = cv2.resize(resistor, (600, 250))
-    cwd = os.chdir('../initialized_test')
+    resistor = cv2.resize(resistor, (80, 20))
+    cwd = os.chdir('../test_scaled')
     cv2.imwrite(str(i) + '.png',resistor)
