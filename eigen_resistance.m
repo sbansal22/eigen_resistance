@@ -70,6 +70,7 @@ for num = 1:100
     if train_labels(I) == test_labels(num)
         accuracy(num) = 1;
     else
+        accuracy(num) = 0;
     end
     %figure()
     %subplot(2,1,1)
