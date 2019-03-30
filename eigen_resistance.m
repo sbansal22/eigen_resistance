@@ -1,4 +1,4 @@
-%% Eigenresistence Matlab Code
+%% Eigenresistance Matlab Code
 
 %@authors: Thomas Jagielski and Sparsh Bansal
 
@@ -23,3 +23,4 @@ bw_test = zeros(250,600,size(test, 4));
 for l=size(test, 4)
     bw_train(:,:,l) = rgb2gray(train(:,:,:,l));
 end
+
