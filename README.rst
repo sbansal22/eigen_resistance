@@ -1,6 +1,3 @@
-# fischer_resistance
-QEA Module 2 Final Project
-
 :Name: Fischer Resistances - Quantitative Engineering Analysis I 
 :Authors: Sparsh Bansal, Thomas Jagielski
 :Version: 1.0
