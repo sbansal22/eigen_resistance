@@ -1,10 +1,6 @@
 """
 Pythons scipt to select parts of images and crop them to initialize the correct
-size
-
-Code slightly modified from:
-https://docs.opencv.org/trunk/d4/dc6/tutorial_py_template_matching.html
-
+size.
 """
 #from PIL import Image
 import cv2
