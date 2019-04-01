@@ -9,7 +9,7 @@ train_set = zeros(250*600*3,79);
 for k=0:78
     image_train = imread(strcat('./initialized_train/', int2str(k), '.png'));
     train(:,:,:,k+1) = image_train;
-    for a=1:3
+    for a=1:2
         rgb_reshaped = reshape(train(:,:,a,k+1),[250*600, 1]);
         train_set((a-1)*(250*600)+1:a*(250*600),k+1) = rgb_reshaped;
     end
@@ -20,7 +20,7 @@ test_set = zeros(250*600*3,100);
 for k=0:99
     image_test = imread(strcat('./initialized_test/', int2str(k), '.png'));
     test(:,:,:,k+1) = image_test;
-    for a=1:3
+    for a=1:2
         rgb_reshaped = reshape(test(:,:,a,k+1),[250*600, 1]);
         test_set((a-1)*(250*600)+1:a*(250*600),k+1) = rgb_reshaped;
     end
@@ -56,7 +56,7 @@ test_labels = labels(:,3);
 %% For loop to run through images
 % Initialize a vector of zeros to represent averages
 % By preallocating space, we are saving in runtime
-accuracy = zeros(test_weights(2));
+accuracy = zeros(size(test_weights,2),1);
 % For loop to compare the distance of each column of weights to the
 % training image weights
 for num = 1:100
