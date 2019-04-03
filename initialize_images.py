@@ -9,21 +9,21 @@ import os
 
 # Change 'test' and 'training' as needed to initialize
 
-cwd = os.chdir('train')
+cwd = os.chdir('new_test')
 files = os.listdir(cwd)
 
 print(files)
 
 for i in range(len(files)):
-    print(files[i])
-    cwd = os.chdir('../train')
+    print(i)
+    cwd = os.chdir('../new_test')
     rgb = cv2.imread(files[i])
     gray = cv2.cvtColor(rgb, cv2.COLOR_BGR2GRAY)
     template = cv2.imread('../resistor_template.png',0)
     w, h = template.shape[::-1]
 
     res = cv2.matchTemplate(gray, template, cv2.TM_CCOEFF_NORMED)
-    threshold = 0.8
+    threshold = 0.99
 
     loc = np.where( res >= threshold)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
@@ -31,6 +31,6 @@ for i in range(len(files)):
     bottom_right = (top_left[0] + w, top_left[1]+h)
 
     resistor = rgb[top_left[1]:bottom_right[1],top_left[0]:bottom_right[0]]
-    resistor = cv2.resize(resistor, (80, 20))
-    cwd = os.chdir('../train_scaled')
+    resistor = cv2.resize(resistor, (600, 250))
+    cwd = os.chdir('../new_test_init')
     cv2.imwrite(str(i) + '.png',resistor)
