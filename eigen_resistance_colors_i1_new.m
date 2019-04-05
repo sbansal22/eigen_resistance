@@ -8,7 +8,8 @@ all_weights = [0.2,0,1;
                0.25,0,1;
                0.3,0,1;
                0.25,0.05,1;
-               0.25,0,0.95];
+               0.25,0,0.95;
+               1,1,1];
            
 accuracy_values = all_weights;
 accuracy_values = [accuracy_values, zeros(size(accuracy_values,1),1)];
@@ -33,7 +34,8 @@ for m=1:size(all_weights,1)
         test(:,:,:,k+1) = image_test;
         for a=1:3
             rgb_reshaped = reshape(test(:,:,a,k+1),[250*600, 1]);
-            test_set((a-1)*(250*600)+1:a*(250*600),k+1) = rgb_reshaped;
+            % Added weights for the test set as well
+            test_set((a-1)*(250*600)+1:a*(250*600),k+1) = weights(a) * rgb_reshaped;
         end
     end
 
